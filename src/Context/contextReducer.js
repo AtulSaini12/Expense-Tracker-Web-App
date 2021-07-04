@@ -4,11 +4,11 @@ export default function contextReducer(state, action) {
   let transactions;
 
   switch (action.type) {
-    case "ADD_TRANSACTIONS":
+    case "ADD_TRANSACTION":
       transactions = [action.payload, ...state];
       return transactions;
 
-    case "DELETE_TRANSACTIONS":
+    case "DELETE_TRANSACTION":
       transactions = state.filter(
         (transaction) => transaction.id !== action.payload
       );
