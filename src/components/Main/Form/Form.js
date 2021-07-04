@@ -15,12 +15,17 @@ import {
 
 import { ExpenseTrackerContext } from "../../../Context/Context";
 import useStyles from "./formStyles";
+import {
+  incomeCategories,
+  expenseCategories,
+} from "../../../constants/Categories";
+import formatDate from "../../../utils/formatDate";
 
 const initialFormState = {
   amount: "",
   category: "",
   type: "Income",
-  date: new Date(),
+  date: formatDate(new Date()),
 };
 
 export default function Form() {
@@ -32,8 +37,7 @@ export default function Form() {
     if (
       formData.amount === "" ||
       formData.category === "" ||
-      formData.type === "" ||
-      formData.date === ""
+      formData.type === ""
     ) {
       return alert("Please enter all the details !!");
     }
@@ -41,10 +45,14 @@ export default function Form() {
     const transaction = {
       ...formData,
       amount: Number(formData.amount),
+      date: formatDate(formData.date),
       id: uuidv4(),
     };
     addTransaction(transaction);
   };
+
+  const showCategories =
+    formData.type === "Income" ? incomeCategories : expenseCategories;
 
   return (
     <div>
@@ -83,8 +91,13 @@ export default function Form() {
                 });
               }}
             >
-              <MenuItem value="business">Business</MenuItem>
-              <MenuItem value="salary">Salary</MenuItem>
+              {showCategories.map((category) => {
+                return (
+                  <MenuItem key={category.type} value={category.type}>
+                    {category.type}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </Grid>
