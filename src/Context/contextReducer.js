@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function contextReducer(state, action) {
   let transactions;
 

@@ -33,6 +33,13 @@ export default function Form() {
   const [formData, setFormData] = useState(initialFormState);
   const classes = useStyles();
 
+  const resetFormData = () => {
+    formData.amount = "";
+    formData.category = "";
+    formData.type = "Income";
+    formData.date = formatDate(new Date());
+  };
+
   const handleOnClick = () => {
     if (
       formData.amount === "" ||
@@ -48,6 +55,7 @@ export default function Form() {
       date: formatDate(formData.date),
       id: uuidv4(),
     };
+    resetFormData();
     addTransaction(transaction);
   };
 

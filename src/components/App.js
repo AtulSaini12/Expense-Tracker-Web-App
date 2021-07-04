@@ -20,7 +20,7 @@ export default function App() {
         style={{ height: "100vh" }}
       >
         <Grid item xs={12} sm={4}>
-          <Details title="income" />
+          <Details title="Income" />
         </Grid>
 
         <Grid item xs={12} sm={3}>
@@ -28,7 +28,7 @@ export default function App() {
         </Grid>
 
         <Grid item xs={12} sm={4}>
-          <Details title="expense" />
+          <Details title="Expense" />
         </Grid>
       </Grid>
     </div>
