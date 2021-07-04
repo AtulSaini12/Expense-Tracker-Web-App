@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import useStyles from "./mainStyles";
 import Form from "./Form/Form";
+import List from "./List/List";
 
 export default function Main() {
   const classes = useStyles();
@@ -34,7 +35,7 @@ export default function Main() {
       <CardContent className={classes.cardContent}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            {/* Liist */}
+            <List />
           </Grid>
         </Grid>
       </CardContent>
