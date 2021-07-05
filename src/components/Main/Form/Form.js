@@ -34,19 +34,19 @@ export default function Form() {
   const classes = useStyles();
 
   const resetFormData = () => {
-    formData.amount = "";
-    formData.category = "";
-    formData.type = "Income";
-    formData.date = formatDate(new Date());
+    setFormData(initialFormState);
   };
 
   const handleOnClick = () => {
+    if (Number.isNaN(Number(formData.amount)) || !formData.date.includes("-"))
+      return alert("Please enter all the details correctly !!");
+
     if (
       formData.amount === "" ||
       formData.category === "" ||
       formData.type === ""
     ) {
-      return alert("Please enter all the details !!");
+      return alert("Please enter all the details correctly !!");
     }
 
     const transaction = {
@@ -66,9 +66,11 @@ export default function Form() {
     <div>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Typography align="center" variant="subtitle2" gutterBottom>
-            .....
-          </Typography>
+          <Typography
+            align="center"
+            variant="subtitle2"
+            gutterBottom
+          ></Typography>
         </Grid>
         <Grid item xs={6}>
           <FormControl fullWidth>

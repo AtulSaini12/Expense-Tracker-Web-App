@@ -16,7 +16,7 @@ export default function Main() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="Expense Tracker" subheader="Powered by Speechly" />
+      <CardHeader title="Expense Tracker" subheader="Powered by React" />
       <CardContent>
         <Typography align="center" variant="h5">
           Total Balance : $100
@@ -26,7 +26,7 @@ export default function Main() {
           style={{ lineHeight: "1.5em", marginTop: "20px" }}
         >
           {/* Info Form */}
-          Try Saying: Add Income for $100 in category salary for monday...
+          Add your Incomes and Expense below :
         </Typography>
         <Divider />
         <Form />
