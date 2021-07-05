@@ -25,8 +25,6 @@ const useTransactions = (title) => {
     }
   });
 
-  console.log({ rightTransactions, total, categories });
-
   const filteredCategories = categories.filter((sc) => sc.amount > 0);
 
   const chartData = {
@@ -38,8 +36,6 @@ const useTransactions = (title) => {
     ],
     labels: filteredCategories.map((c) => c.type),
   };
-
-  console.log({ filteredCategories, chartData });
 
   return { filteredCategories, total, chartData };
 };
