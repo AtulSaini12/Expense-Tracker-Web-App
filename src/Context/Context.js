@@ -16,12 +16,19 @@ export default function ExpenseTrackerProvider({ children }) {
     dispatch({ type: "ADD_TRANSACTION", payload: transaction });
   };
 
+  const balance = transactions.reduce(
+    (acc, currVal) =>
+      currVal.type === "Income" ? acc + currVal.amount : acc - currVal.amount,
+    0
+  );
+
   return (
     <ExpenseTrackerContext.Provider
       value={{
         deleteTransaction,
         addTransaction,
         transactions,
+        balance,
       }}
     >
       {children}
