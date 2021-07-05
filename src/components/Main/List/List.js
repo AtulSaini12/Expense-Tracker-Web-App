@@ -44,7 +44,7 @@ export default function List() {
               </ListItemAvatar>
               <ListItemText
                 primary={transaction.category}
-                secondary={`$ ${transaction.amount} : ${transaction.date}`}
+                secondary={`₹ ${transaction.amount} : ${transaction.date}`}
               />
               <ListItemSecondaryAction>
                 <IconButton

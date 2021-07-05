@@ -24,7 +24,7 @@ export default function Main() {
       <CardHeader title="Expense Tracker" subheader="Powered by React" />
       <CardContent>
         <Typography align="center" variant="h5">
-          Total Balance : {balance >= 0 ? `$${balance}` : `- $${balance * -1}`}
+          Total Balance : {balance >= 0 ? `₹${balance}` : `- ₹${balance * -1}`}
         </Typography>
         <Typography
           variant="subtitle1"

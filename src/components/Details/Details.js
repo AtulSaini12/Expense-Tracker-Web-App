@@ -14,7 +14,7 @@ export default function Details({ title }) {
     <Card className={title === "Income" ? classes.income : classes.expense}>
       <CardHeader title={title} />
       <CardContent>
-        <Typography variant="h5">${total}</Typography>
+        <Typography variant="h5">₹{total}</Typography>
         <Doughnut data={chartData} />
       </CardContent>
     </Card>
