@@ -20,6 +20,7 @@ import {
   expenseCategories,
 } from "../../../constants/Categories";
 import formatDate from "../../../utils/formatDate";
+import SnackBar from "../../snackbar/SnackBar";
 
 const initialFormState = {
   amount: "",
@@ -32,6 +33,7 @@ export default function Form() {
   const { addTransaction } = useContext(ExpenseTrackerContext);
   const [formData, setFormData] = useState(initialFormState);
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
   const resetFormData = () => {
     setFormData(initialFormState);
@@ -56,6 +58,7 @@ export default function Form() {
       id: uuidv4(),
     };
     resetFormData();
+    setOpen(true);
     addTransaction(transaction);
   };
 
@@ -65,6 +68,7 @@ export default function Form() {
   return (
     <div>
       <Grid container spacing={2}>
+        <SnackBar open={open} setOpen={setOpen} />
         <Grid item xs={12}>
           <Typography
             align="center"
